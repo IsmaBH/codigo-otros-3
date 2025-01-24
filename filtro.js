@@ -8,8 +8,11 @@ const productos = [
   {nombre: "Zapato rojo", tipo: "zapato", color: "rojo", img: "./zapato-rojo.jpg"}
 ]
 
-const li = document.getElementsByName("lista-de-productos")
-const $i = document.querySelector('.input');
+//Aqui era obtener el elemento mediante el id y no por nombre
+const li = document.getElementById("lista-de-productos")
+//Aqui esta el elemento pero no hay ningun elemento en el html que tenga esta descripcion
+//Lo cambie a busqueda ya que es mas descriptivo de lo es ese elemento
+const $i = document.querySelector('.busqueda');
 
 for (let i = 0; i < productos.length; i++) {
   var d = document.createElement("div")
@@ -28,10 +31,13 @@ for (let i = 0; i < productos.length; i++) {
   li.appendChild(d)
 }
 
-displayProductos(productos)
-const botonDeFiltro = document.querySelector("button");
+//displayProductos(productos) que se pretende que realice la función displayProductos? el for anterior ya carga una cantidad
+//de productos por default
+//El boton de filtrado es mejor traerlo por medio de un id ya que despues podrian exisistir mas botones con diferente funcionalidad
+const botonDeFiltro = document.getElementById("btnFiltrar");
 
 botonDeFiltro.onclick = function() {
+  //
   while (li.firstChild) {
     li.removeChild(li.firstChild);
   }
